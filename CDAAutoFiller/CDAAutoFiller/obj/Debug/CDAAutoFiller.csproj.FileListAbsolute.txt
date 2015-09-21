@@ -1,0 +1,13 @@
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\bin\Debug\CDAAutoFiller.exe.config
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\bin\Debug\CDAAutoFiller.exe
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\bin\Debug\CDAAutoFiller.pdb
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller.csprojResolveAssemblyReference.cache
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\MainWindow.baml
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\MainWindow.g.cs
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\App.g.cs
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller_MarkupCompile.cache
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller.g.resources
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller.Properties.Resources.resources
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller.csproj.GenerateResource.Cache
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller.exe
+C:\Users\Bryan\Desktop\Projects\Excel\CDAAutoFiller\CDAAutoFiller\obj\Debug\CDAAutoFiller.pdb
