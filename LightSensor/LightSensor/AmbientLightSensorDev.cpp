@@ -13,12 +13,12 @@ AmbientLightSensorDev::AmbientLightSensorDev()
 //If the device path matches the supported device path, the function will return TRUE.
 BOOL AmbientLightSensorDev::EnumerateDevs()
 {
-	HANDLE								DeviceInfoSet;				//Handle to the device info set.
-	DWORD								MemberIndex = 0;			//The index of the device set to be tested.
-	SP_DEVICE_INTERFACE_DATA			MyDeviceInterfaceData;		//Contains the device interface data.
-	BOOL								Result;						//Result of the Enumeration and detail functions.
-	ULONG								Length;						//Length of the DataDetail structure.
-	_HIDD_ATTRIBUTES					Attributes;					//HID Device attributes.
+	HANDLE				DeviceInfoSet;			//Handle to the device info set.
+	DWORD				MemberIndex = 0;		//The index of the device set to be tested.
+	SP_DEVICE_INTERFACE_DATA	MyDeviceInterfaceData;		//Contains the device interface data.
+	BOOL				Result;				//Result of the Enumeration and detail functions.
+	ULONG				Length;				//Length of the DataDetail structure.
+	_HIDD_ATTRIBUTES		Attributes;			//HID Device attributes.
 
 	for (int i = 0; i < 65; i++)
 	{
@@ -29,9 +29,9 @@ BOOL AmbientLightSensorDev::EnumerateDevs()
 	//This function call checks for all device interfaces that are present and belong to the HidGuid class.
 	//HidGuid is the GUID for Human Interface Devices.
 	DeviceInfoSet = SetupDiGetClassDevs(&HidGuid,
-										NULL,
-										NULL,
-										DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);
+			NULL,
+			NULL,
+			DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);
 	
 	MyDeviceInterfaceData.cbSize = sizeof(MyDeviceInterfaceData);
 	
@@ -130,8 +130,8 @@ void AmbientLightSensorDev::SetOutputBuffer(int index, BYTE value)
 /*
 BOOL AmbientLightSensorDev::GetDeviceCaps()
 {
-	BOOL					Result;
-	HIDP_CAPS				DevCaps;
+	BOOL			Result;
+	HIDP_CAPS		DevCaps;
 	PHIDP_PREPARSED_DATA	PreparsedData;
 
 	CmdSequence = 0x00;
@@ -192,10 +192,10 @@ BOOL AmbientLightSensorDev::ReadInput()
 		NULL);
 
 	Result = ReadFile(ReadHandle,
-						InputBuffer,
-						InReportLength,
-						&BytesRead,
-						(LPOVERLAPPED)&HIDOverlapped);
+		InputBuffer,
+		InReportLength,
+		&BytesRead,
+		(LPOVERLAPPED)&HIDOverlapped);
 
 	Result = WaitForSingleObject(hEventObject, 3000);
 
