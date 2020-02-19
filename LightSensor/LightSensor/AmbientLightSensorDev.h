@@ -35,21 +35,21 @@ public:
 //Members
 	CONST unsigned int	SupportedVID	= 0x04D8;
 	CONST unsigned int	SupportedPID	= 0xFB02;
-	GUID				HidGuid;				//GUID for the HID class.
+	GUID			HidGuid;				//GUID for the HID class.
 	
 
 private:
 //Methods
 
 //Members
-	LPCTSTR								MyDevicePath = NULL;		//String to the device path.
-	HANDLE								DeviceHandle;				//Handle to the device.
-	//HANDLE							ReadHandle;
+	LPCTSTR					MyDevicePath = NULL;		//String to the device path.
+	HANDLE					DeviceHandle;				//Handle to the device.
+	//HANDLE				ReadHandle;
 	PSP_DEVICE_INTERFACE_DETAIL_DATA	DetailData;
-	USHORT								InReportLength;
-	USHORT								OutReportLength;
-	BYTE								InputBuffer[65];
-	BYTE								OutputBuffer[65];
-	BYTE								CmdSequence;
+	USHORT					InReportLength;
+	USHORT					OutReportLength;
+	BYTE					InputBuffer[65];
+	BYTE					OutputBuffer[65];
+	BYTE					CmdSequence;
 };
 
