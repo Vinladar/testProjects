@@ -2,33 +2,33 @@
 #include <Windows.h>
 #include "AmbientLightSensorDev.h"
 
-HINSTANCE							ghMainInstance;						//Main application instance.
-HWND								ghMainWnd;							//Main window instance.
-TCHAR								AppName[12] = TEXT("LightSensor");	//Application name.
-DEV_BROADCAST_DEVICEINTERFACE		DevBroadcastDeviceInt;				//Device broadcast interface structure.
-HDEVNOTIFY							DevNotificationHandle;				//Device notification handle.
-AmbientLightSensorDev*				Dev;								//Pointer to the ambient light sensor device.
+HINSTANCE				ghMainInstance;				//Main application instance.
+HWND					ghMainWnd;				//Main window instance.
+TCHAR					AppName[12] = TEXT("LightSensor");	//Application name.
+DEV_BROADCAST_DEVICEINTERFACE		DevBroadcastDeviceInt;			//Device broadcast interface structure.
+HDEVNOTIFY				DevNotificationHandle;			//Device notification handle.
+AmbientLightSensorDev*			Dev;					//Pointer to the ambient light sensor device.
 
 #define ID_INPUTWND 65
 #define ID_WRITEBUTTON 66
 #define ID_READBUTTON 67
 
-LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);					//Prototype to the window procedure.
+LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);				//Prototype to the window procedure.
 
 //Application entry point.
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR CmdLine, int ShowCmd)
 {
-	WNDCLASS	wc;
+	WNDCLASS		wc;
 	MSG			msg;
-	ghMainInstance = hInstance;
+	ghMainInstance = 	hInstance;
 
 	//Window class structure definition.
-	wc.style			= CS_HREDRAW | CS_VREDRAW;
+	wc.style		= CS_HREDRAW | CS_VREDRAW;
 	wc.cbClsExtra		= 0;
 	wc.cbWndExtra		= 0;
 	wc.hbrBackground	= (HBRUSH)GetStockObject(LTGRAY_BRUSH);
-	wc.hCursor			= LoadCursor(NULL, IDC_ARROW);
-	wc.hIcon			= LoadIcon(NULL, IDI_APPLICATION);
+	wc.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	wc.hIcon		= LoadIcon(NULL, IDI_APPLICATION);
 	wc.lpfnWndProc		= WndProc;
 	wc.lpszClassName	= AppName;
 	wc.lpszMenuName		= NULL;
@@ -63,21 +63,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance, PSTR CmdLine, in
 //Window procedure definition.
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	LPCTSTR							DeviceName;				//String storing the device name.	
-	PDEV_BROADCAST_HDR				lpdb;					//Device broadcast structure
-	PDEV_BROADCAST_DEVICEINTERFACE	lpdbi;					//Device interface broadcast structure.
-	const int						NumBoxesPerRow = 16;
-	const int						Rows = 5;
-	const int						NumBoxes = 65;
-	HWND							TextWnd[NumBoxes];
-	HWND							InputBox;
-	HWND							Button[2];
-	int								BoxWidth = 40;
-	int								BoxHeight = 20;
-	int								ButtonWidth = 100;
-	int								ButtonHeight = 30;
-	TCHAR							wndName[5];
-	TCHAR							editName[5] = TEXT("edit");
+	LPCTSTR					DeviceName;				//String storing the device name.	
+	PDEV_BROADCAST_HDR			lpdb;					//Device broadcast structure
+	PDEV_BROADCAST_DEVICEINTERFACE		lpdbi;					//Device interface broadcast structure.
+	const int				NumBoxesPerRow = 16;
+	const int				Rows = 5;
+	const int				NumBoxes = 65;
+	HWND					TextWnd[NumBoxes];
+	HWND					InputBox;
+	HWND					Button[2];
+	int					BoxWidth = 40;
+	int					BoxHeight = 20;
+	int					ButtonWidth = 100;
+	int					ButtonHeight = 30;
+	TCHAR					wndName[5];
+	TCHAR					editName[5] = TEXT("edit");
 
 	switch (msg)
 	{
@@ -86,16 +86,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	//	structure is filled with the required details, then the application registers for broadcast events.	
 	case WM_CREATE:
 		Dev = new AmbientLightSensorDev();
-		DevBroadcastDeviceInt.dbcc_size			= sizeof(DevBroadcastDeviceInt);
+		DevBroadcastDeviceInt.dbcc_size		= sizeof(DevBroadcastDeviceInt);
 		DevBroadcastDeviceInt.dbcc_devicetype	= DBT_DEVTYP_DEVICEINTERFACE;
 		DevBroadcastDeviceInt.dbcc_classguid	= Dev->HidGuid;
 
-		DevNotificationHandle					= RegisterDeviceNotification(hWnd, 
-													&DevBroadcastDeviceInt, 
-													DEVICE_NOTIFY_WINDOW_HANDLE);
+		DevNotificationHandle			= RegisterDeviceNotification(hWnd, 
+								&DevBroadcastDeviceInt, 
+								DEVICE_NOTIFY_WINDOW_HANDLE);
 		TCHAR		str[10];
-		HDC			hdc;
-		PAINTSTRUCT ps;
+		HDC		hdc;
+		PAINTSTRUCT 	ps;
 		BYTE		EditBoxValue[65];
 		HWND*		ActiveWnd;
 		TCHAR		TextWndContents[100];
